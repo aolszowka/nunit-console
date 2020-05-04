@@ -94,7 +94,6 @@ namespace NUnit.Engine.Services
         private ITestAgent CreateRemoteAgent(TestPackage package, int waitTime)
         {
             var agentId = Guid.NewGuid();
-            //var process = LaunchAgentProcess(package, agentId);
             var process = new AgentProcess(this, package, agentId);
 
             process.Exited += (sender, e) => OnAgentExit((Process)sender, agentId);
